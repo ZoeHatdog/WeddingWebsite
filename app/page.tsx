@@ -47,7 +47,7 @@ export default function Home() {
             Lakehall at Nena’s Sanctuary<br />Cabuyao, Laguna
           </p>
         </div>
-        <p className="hero__banner caps">Formal invitation to follow</p>
+    {/* <p className="hero__banner caps">Formal invitation to follow</p> */}
       </header>
 
       <main>
@@ -94,7 +94,7 @@ export default function Home() {
                 <p>Kindly opt for a modest, polished attire. Please avoid wearing black or white. Florals are, however, most welcome!</p>
               </div>
             </article>
-            
+
           </div>
         </section>
 
