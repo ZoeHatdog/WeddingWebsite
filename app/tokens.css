@@ -24,7 +24,7 @@
   --color-focus: var(--color-leaf-deep);
   --color-shadow: oklch(46% 0.040 74 / 0.14);
   --color-shadow-soft: oklch(46% 0.040 74 / 0.08);
-  --color-sky-veil: oklch(97.1% 0.013 237 / 0);
+  --color-glass: oklch(99.7% 0.002 78 / 0.74);
 
   /* type */
   --font-serif: var(--font-goudy), "Goudy Old Style", Garamond, Georgia, serif;

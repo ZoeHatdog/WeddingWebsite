@@ -107,93 +107,90 @@ a { color: inherit; }
 }
 .nav__links a:hover { background-size: 100% 1px; }
 
+/* ---------- backdrop: the artwork stays put while the page scrolls over it ---------- */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+/* 60% keeps the couple in frame on landscape screens; portrait screens crop only the sides. */
+.backdrop__art {
+  object-fit: cover;
+  object-position: 50% 60%;
+}
+
+/* frosted panel for text that sits directly on the artwork */
+.glass {
+  background: var(--color-glass);
+  -webkit-backdrop-filter: blur(10px) saturate(1.1);
+  backdrop-filter: blur(10px) saturate(1.1);
+  box-shadow: 0 10px 30px var(--color-shadow-soft);
+}
+
 /* ---------- hero ---------- */
 .hero {
   position: relative;
-  background:
-    linear-gradient(to bottom, var(--color-sky-veil) 60%, var(--color-sky)),
-    url("/assets/sky.webp") center top / cover no-repeat,
-    var(--color-sky);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100svh;
+  padding-bottom: clamp(var(--space-sm), 4svh, var(--space-xl));
 }
-
-.hero__poster {
-  position: relative;
-  container-type: inline-size;
-  width: min(100%, 52rem);
-  margin-inline: auto;
-}
-
-.hero__art {
-  width: 100%;
-  -webkit-mask-image: linear-gradient(to bottom, #000 93%, transparent);
-  mask-image: linear-gradient(to bottom, #000 93%, transparent);
-}
+.hero > .nav { align-self: stretch; }
 
 @media (min-width: 54rem) {
   .nav {
     position: absolute;
     inset: 0 0 auto 0;
   }
-  .hero__art {
-    -webkit-mask-image:
-      linear-gradient(to right, transparent, #000 10%, #000 90%, transparent),
-      linear-gradient(to bottom, #000 93%, transparent);
-    -webkit-mask-composite: source-in;
-    mask-image:
-      linear-gradient(to right, transparent, #000 10%, #000 90%, transparent),
-      linear-gradient(to bottom, #000 93%, transparent);
-    mask-composite: intersect;
-  }
 }
 
-/* Positions mirror the printed save-the-date; cqi keeps them locked to the artwork at any width. */
+/* Sized off viewport height so the block stays in the sky above the tree line (~40% down). */
 .hero__text {
-  position: absolute;
-  inset: 6cqi 0 auto 0;
   display: grid;
   justify-items: center;
+  margin-top: clamp(var(--space-2xs), 3svh, var(--space-lg));
+  padding-inline: var(--space-sm);
   text-align: center;
   color: var(--color-ink);
 }
+@media (min-width: 54rem) {
+  .hero__text { margin-top: clamp(var(--space-xl), 8svh, 5rem); }
+}
 
-/* The text block must end above the tree line at ~53cqi. */
 .hero__kicker {
-  font-size: 3cqi;
+  font-size: clamp(0.95rem, 2.4svh, 1.6rem);
   letter-spacing: 0.09em;
   line-height: 1;
 }
 
 .hero__names {
-  width: 50cqi;
-  margin-top: 3cqi;
-  margin-left: 1cqi;
+  width: min(80vw, 34rem, 39svh);
+  margin-top: 2svh;
 }
 
 .hero__date {
-  margin-top: 2.6cqi;
-  font-size: 3.8cqi;
+  margin-top: 2svh;
+  font-size: clamp(1.25rem, 3.4svh, 2.2rem);
   letter-spacing: 0.1em;
   line-height: 1;
   font-variant-numeric: lining-nums;
 }
 
 .hero__venue {
-  margin-top: 2.4cqi;
-  font-size: 2.1cqi;
+  margin-top: 1.6svh;
+  font-size: clamp(0.8rem, 1.8svh, 1.1rem);
   letter-spacing: 0.1em;
   line-height: 1.6;
 }
 
-/* Sits on the steps below the couple; the soft wash keeps it legible over the flowers. */
+/* The soft wash keeps it legible wherever it lands on the garden. */
 .hero__banner {
-  position: absolute;
-  inset-inline: 0;
-  top: 94.5cqi;
-  width: fit-content;
-  margin-inline: auto;
-  padding: 1.2cqi 5cqi;
+  margin-top: auto;
+  padding: var(--space-xs) var(--space-xl);
   text-align: center;
-  font-size: 2.2cqi;
+  font-size: clamp(0.75rem, 1.6svh, 1rem);
   letter-spacing: 0.1em;
   line-height: 1;
   color: var(--color-ink);
@@ -201,12 +198,8 @@ a { color: inherit; }
 }
 
 @media (max-width: 30rem) {
-  .hero__text { inset-block-start: 4cqi; }
-  .hero__kicker { font-size: 4.2cqi; }
-  .hero__names { width: 48cqi; }
-  .hero__date { font-size: 5cqi; }
-  .hero__venue { font-size: 3.2cqi; letter-spacing: 0.06em; line-height: 1.45; }
-  .hero__banner { font-size: 3.2cqi; letter-spacing: 0.06em; }
+  .hero__venue { letter-spacing: 0.06em; line-height: 1.5; }
+  .hero__banner { letter-spacing: 0.06em; }
 }
 
 /* one orchestrated entrance */
@@ -224,6 +217,7 @@ a { color: inherit; }
   gap: var(--space-xl);
   width: min(100% - 2 * var(--space-md), 68rem);
   margin: var(--space-xl) auto clamp(var(--space-xl), 8vw, var(--space-3xl));
+  padding: clamp(var(--space-md), 4vw, var(--space-2xl));
 }
 
 .day__title {
@@ -318,10 +312,12 @@ a { color: inherit; }
 .paper--card {
   -webkit-mask:
     url("/assets/torn-top.svg") top / 100% 22px no-repeat,
-    linear-gradient(#000, #000) 0 21px / 100% calc(100% - 21px) no-repeat;
+    linear-gradient(#000, #000) 0 21px / 100% calc(100% - 42px) no-repeat,
+    url("/assets/torn-bottom.svg") bottom / 100% 22px no-repeat;
   mask:
     url("/assets/torn-top.svg") top / 100% 22px no-repeat,
-    linear-gradient(#000, #000) 0 21px / 100% calc(100% - 21px) no-repeat;
+    linear-gradient(#000, #000) 0 21px / 100% calc(100% - 42px) no-repeat,
+    url("/assets/torn-bottom.svg") bottom / 100% 22px no-repeat;
 }
 
 .paper--torn {
@@ -337,11 +333,7 @@ a { color: inherit; }
 
 /* ---------- frame: torn card resting on the floral foot ---------- */
 .sky-band {
-  padding-top: clamp(var(--space-lg), 6vw, var(--space-2xl));
-  background:
-    linear-gradient(to bottom, var(--color-sky), var(--color-sky-veil) 30%, var(--color-sky-veil) 70%, var(--color-sky)),
-    url("/assets/sky.webp") center / cover no-repeat,
-    var(--color-sky-2);
+  padding-block: clamp(var(--space-lg), 6vw, var(--space-2xl));
 }
 
 .frame {
@@ -353,7 +345,7 @@ a { color: inherit; }
 
 .frame > .paper--card {
   width: var(--card-w);
-  padding: var(--space-2xl) clamp(var(--space-md), 6vw, var(--space-2xl)) var(--space-lg);
+  padding: var(--space-2xl) clamp(var(--space-md), 6vw, var(--space-2xl));
   text-align: center;
 }
 
@@ -402,12 +394,12 @@ a { color: inherit; }
 /* ---------- attire ---------- */
 .attire {
   padding-block: clamp(var(--space-xl), 8vw, var(--space-3xl)) clamp(var(--space-md), 4vw, var(--space-2xl));
-  background: linear-gradient(to bottom, var(--color-sky), var(--color-sky-2) 25%, var(--color-sky-2) 75%, var(--color-sky));
 }
 
 .attire__head {
   width: min(100% - 2 * var(--space-md), 76rem);
   margin-inline: auto;
+  padding: clamp(var(--space-md), 3vw, var(--space-xl));
 }
 
 .attire__title {

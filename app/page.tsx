@@ -10,9 +10,20 @@ const stagger = (i: number) => ({ "--i": i }) as CSSProperties;
 export default function Home() {
   return (
     <>
+      <div className="backdrop">
+        <Image
+          className="backdrop__art"
+          src="/assets/hero-art.webp"
+          fill
+          sizes="100vw"
+          priority
+          alt="Watercolour of a bride and groom in a naval dress uniform beneath a white floral arch, on a round stage beside the lake at Nena’s Sanctuary."
+        />
+      </div>
+
       <a className="skip" href="#the-day">Skip to the details</a>
 
-      <header className="hero">
+      <header className="hero" id="top">
         <nav className="nav" aria-label="Sections">
           <a className="nav__mark" href="#top" aria-label="Javez and Janel, back to top">
             J <span aria-hidden="true">&amp;</span> J
@@ -24,34 +35,23 @@ export default function Home() {
           </ul>
         </nav>
 
-        <div className="hero__poster" id="top">
-          <Image
-            className="hero__art"
-            src="/assets/hero-art.webp"
-            width={1556}
-            height={1684}
-            sizes="(min-width: 54rem) 52rem, 100vw"
-            priority
-            alt="Watercolour of a bride and groom in a naval dress uniform beneath a white floral arch, on a round stage beside the lake at Nena’s Sanctuary."
-          />
-          <div className="hero__text">
-            <p className="hero__kicker caps reveal" style={stagger(0)}>Save the date</p>
-            <h1 className="hero__names reveal" style={stagger(1)}>
-              <Image src="/assets/names.png" width={1600} height={720} sizes="(min-width: 54rem) 42rem, 80vw" priority alt="Javez & Janel" />
-            </h1>
-            <p className="hero__date reveal" style={stagger(2)}>
-              <time dateTime="2027-04-26">04.26.2027</time>
-            </p>
-            <p className="hero__venue caps reveal" style={stagger(3)}>
-              Lakehall at Nena’s Sanctuary<br />Cabuyao, Laguna
-            </p>
-          </div>
-          <p className="hero__banner caps">Formal invitation to follow</p>
+        <div className="hero__text">
+          <p className="hero__kicker caps reveal" style={stagger(0)}>Save the date</p>
+          <h1 className="hero__names reveal" style={stagger(1)}>
+            <Image src="/assets/names.png" width={1600} height={720} sizes="(min-width: 54rem) 34rem, 80vw" priority alt="Javez & Janel" />
+          </h1>
+          <p className="hero__date reveal" style={stagger(2)}>
+            <time dateTime="2027-04-26">04.26.2027</time>
+          </p>
+          <p className="hero__venue caps reveal" style={stagger(3)}>
+            Lakehall at Nena’s Sanctuary<br />Cabuyao, Laguna
+          </p>
         </div>
+        <p className="hero__banner caps">Formal invitation to follow</p>
       </header>
 
       <main>
-        <section className="day" id="the-day" aria-labelledby="day-title">
+        <section className="day glass" id="the-day" aria-labelledby="day-title">
           <div className="day__intro">
             <h2 className="day__title" id="day-title">Keep the 26th of April for us</h2>
             <p className="day__lead">
@@ -94,12 +94,12 @@ export default function Home() {
                 <p>Kindly opt for a modest, polished attire. Please avoid wearing black or white. Florals are, however, most welcome!</p>
               </div>
             </article>
-            <FloralFoot />
+            
           </div>
         </section>
 
         <section className="attire" id="attire" aria-labelledby="attire-title">
-          <div className="attire__head">
+          <div className="attire__head glass">
             <h2 className="attire__title" id="attire-title">What to wear, by role</h2>
             <p className="attire__hint">Each part of the celebration has its own palette. Find yours below.</p>
           </div>
@@ -145,7 +145,7 @@ export default function Home() {
               <time dateTime="2027-04-26">04.26.2027</time> <span aria-hidden="true">•</span> Cabuyao, Laguna
             </p>
           </div>
-          <FloralFoot />
+        
         </div>
       </footer>
     </>
