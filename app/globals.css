@@ -149,56 +149,64 @@ a { color: inherit; }
 /* Positions mirror the printed save-the-date; cqi keeps them locked to the artwork at any width. */
 .hero__text {
   position: absolute;
-  inset: 8.6cqi 0 auto 0;
+  inset: 6cqi 0 auto 0;
   display: grid;
   justify-items: center;
   text-align: center;
   color: var(--color-ink);
 }
 
+/* The text block must end above the tree line at ~53cqi. */
 .hero__kicker {
-  font-size: 4.3cqi;
+  font-size: 3cqi;
   letter-spacing: 0.09em;
   line-height: 1;
 }
 
 .hero__names {
-  width: 80cqi;
-  margin-top: 4.6cqi;
-  margin-left: 1.5cqi;
+  width: 50cqi;
+  margin-top: 3cqi;
+  margin-left: 1cqi;
 }
 
 .hero__date {
-  margin-top: 4cqi;
-  font-size: 5.6cqi;
+  margin-top: 2.6cqi;
+  font-size: 3.8cqi;
   letter-spacing: 0.1em;
   line-height: 1;
   font-variant-numeric: lining-nums;
 }
 
 .hero__venue {
-  margin-top: 3.4cqi;
-  font-size: 3cqi;
+  margin-top: 2.4cqi;
+  font-size: 2.1cqi;
   letter-spacing: 0.1em;
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
+/* Sits on the steps below the couple; the soft wash keeps it legible over the flowers. */
 .hero__banner {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 122.8cqi;
+  inset-inline: 0;
+  top: 94.5cqi;
+  width: fit-content;
+  margin-inline: auto;
+  padding: 1.2cqi 5cqi;
   text-align: center;
-  font-size: 2.8cqi;
+  font-size: 2.2cqi;
   letter-spacing: 0.1em;
+  line-height: 1;
   color: var(--color-ink);
+  background: radial-gradient(closest-side, rgb(255 255 255 / 0.85), rgb(255 255 255 / 0.55) 65%, transparent);
 }
 
 @media (max-width: 30rem) {
-  .hero__text { inset-block-start: 5cqi; }
-  .hero__kicker { font-size: 4.6cqi; }
-  .hero__venue { font-size: 4cqi; letter-spacing: 0.06em; line-height: 1.5; }
-  .hero__banner { font-size: 3.6cqi; letter-spacing: 0.06em; }
+  .hero__text { inset-block-start: 4cqi; }
+  .hero__kicker { font-size: 4.2cqi; }
+  .hero__names { width: 48cqi; }
+  .hero__date { font-size: 5cqi; }
+  .hero__venue { font-size: 3.2cqi; letter-spacing: 0.06em; line-height: 1.45; }
+  .hero__banner { font-size: 3.2cqi; letter-spacing: 0.06em; }
 }
 
 /* one orchestrated entrance */

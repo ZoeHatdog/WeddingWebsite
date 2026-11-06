@@ -54,8 +54,10 @@ sky_only = np.zeros_like(m4)
 sky_only[: int(530 * S)] = 1
 clean = (clean * (1 - m4 * sky_only) + blurred * (m4 * sky_only)).astype(np.uint8)
 
-save_webp(clean, "hero-art.webp", 1800)
-save_webp(clean, "hero-art-sm.webp", 900)
+# hero uses the wider repaint; trim its 2px blue frame on the top and right edges
+wide = load("wider-hero.jpg")[2:, :-2]
+save_webp(wide, "hero-art.webp", 1800, 86)
+save_webp(wide, "hero-art-sm.webp", 900)
 # soft watercolour sky band (no scenery) for section backgrounds
 save_webp(clean[int(10 * S): int(400 * S), int(100 * S):], "sky.webp", 1600, 78)
 

@@ -28,8 +28,8 @@ export default function Home() {
           <Image
             className="hero__art"
             src="/assets/hero-art.webp"
-            width={1800}
-            height={2400}
+            width={1556}
+            height={1684}
             sizes="(min-width: 54rem) 52rem, 100vw"
             priority
             alt="Watercolour of a bride and groom in a naval dress uniform beneath a white floral arch, on a round stage beside the lake at Nena’s Sanctuary."
