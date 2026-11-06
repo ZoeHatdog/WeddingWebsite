@@ -1,30 +1,34 @@
-/* Hallmark · tokens · theme: custom (studied from the save-the-date suite)
- * vibe: "watercolour lakeside, light spring, hand-lettered, paper"
- * axes: light / roman-serif (Sorts Mill Goudy) / chromatic-other (taupe ~75°)
+/* Hallmark · tokens · Prototype3 "The Programme"
+ * theme: custom (studied from resources/Save the Date)
+ * vibe: "lakeside ceremony programme, arched windows, ivory stationery"
+ * axes: light / roman-serif (Sorts Mill Goudy) / chromatic-other (taupe ~75°, sage signal)
  */
 :root {
-  /* paper + sky */
-  --color-paper: oklch(99.7% 0.002 78);
-  --color-paper-2: oklch(97.4% 0.010 82);
-  --color-sky: oklch(97.1% 0.013 237);
-  --color-sky-2: oklch(93.2% 0.022 239);
+  /* stationery */
+  --color-paper: oklch(98.6% 0.007 85);
+  --color-paper-2: oklch(96.2% 0.012 84);
+  --color-paper-3: oklch(93.4% 0.016 82);
+
+  /* the watercolour sky behind the arch */
+  --color-sky: oklch(96.4% 0.016 236);
+  --color-sky-2: oklch(92.6% 0.026 238);
+  --color-sky-veil: oklch(96.4% 0.016 236 / 0);
 
   /* ink — the taupe-brown of the printed suite */
   --color-ink: oklch(56.6% 0.042 75);
-  --color-ink-deep: oklch(46% 0.040 74);
-  --color-ink-soft: oklch(66.8% 0.041 77);
-  --color-rule: oklch(88.9% 0.023 78);
+  --color-ink-deep: oklch(44% 0.040 72);
+  --color-ink-soft: oklch(70% 0.035 78);
+  --color-rule: oklch(87.5% 0.022 80);
+  --color-rule-2: oklch(91.5% 0.016 82);
 
-  /* garden */
-  --color-leaf: oklch(65.3% 0.042 133);
-  --color-leaf-deep: oklch(49.7% 0.050 135);
+  /* garden — used only as a signal (active index, ornaments, focus) */
+  --color-leaf: oklch(66% 0.05 132);
+  --color-leaf-deep: oklch(48.5% 0.055 136);
 
   --color-accent: var(--color-ink-deep);
   --color-accent-ink: var(--color-paper);
   --color-focus: var(--color-leaf-deep);
-  --color-shadow: oklch(46% 0.040 74 / 0.14);
-  --color-shadow-soft: oklch(46% 0.040 74 / 0.08);
-  --color-sky-veil: oklch(97.1% 0.013 237 / 0);
+  --color-shadow: oklch(44% 0.040 72 / 0.16);
 
   /* type */
   --font-serif: var(--font-goudy), "Goudy Old Style", Garamond, Georgia, serif;
@@ -32,10 +36,10 @@
   --text-sm: 0.9375rem;
   --text-base: 1.125rem;
   --text-lg: 1.3125rem;
-  --text-xl: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
-  --text-2xl: clamp(2rem, 1.4rem + 2.6vw, 3.25rem);
-  --text-3xl: clamp(2.5rem, 1.6rem + 4vw, 4.5rem);
-  --tracking-caps: 0.14em;
+  --text-xl: clamp(1.5rem, 1.25rem + 1vw, 1.875rem);
+  --text-2xl: clamp(2rem, 1.5rem + 2vw, 2.875rem);
+  --text-3xl: clamp(2.5rem, 1.7rem + 3.4vw, 4rem);
+  --tracking-caps: 0.16em;
 
   /* space — 4pt scale */
   --space-3xs: 0.25rem;
@@ -47,10 +51,15 @@
   --space-xl: 3rem;
   --space-2xl: 4.5rem;
   --space-3xl: 7rem;
+  --space-4xl: 10rem;
 
   --radius-sm: 2px;
   --radius-pill: 999px;
   --rule-hair: 1px;
+
+  /* layout */
+  --stage-w: 44%;
+  --measure: 34rem;
 
   /* motion */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -58,7 +67,8 @@
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
   --dur-micro: 120ms;
   --dur-short: 220ms;
-  --dur-long: 900ms;
+  --dur-long: 420ms;
+  --dur-entrance: 1100ms;
 
   /* layers */
   --z-base: 0;
