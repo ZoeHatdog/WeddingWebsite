@@ -105,7 +105,7 @@ export default function Home() {
         <section className="band attire" id="attire" aria-labelledby="attire-title">
           <div className="frame">
             <div className="paper paper--card attire__head">
-              <p className="eyebrow caps">What to wear</p>
+              {/*  <p className="eyebrow caps">What to wear</p>  */}
               <h2 className="attire__title" id="attire-title">Color Guide</h2>
               <Ornament />
               <p className="attire__hint">We are excited to see you dress up for our wedding! Feel free to browse the color swatches and sample attire below.</p>
