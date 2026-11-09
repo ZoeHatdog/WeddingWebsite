@@ -13,11 +13,11 @@ const goudy = Sorts_Mill_Goudy({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.SITE_URL ?? "http://localhost:3000"),
-  title: "Javez & Janel · April 26, 2027",
+  title: "Javes & Janel · April 26, 2027",
   description:
-    "Save the date: Javez and Janel are getting married on April 26, 2027 at Lakehall at Nena’s Sanctuary, Cabuyao, Laguna.",
+    "Save the date: Javes and Janel are getting married on April 26, 2027 at Lakehall at Nena’s Sanctuary, Cabuyao, Laguna.",
   openGraph: {
-    title: "Javez & Janel · Save the date",
+    title: "Javes & Janel · Save the date",
     description: "April 26, 2027 · Lakehall at Nena’s Sanctuary, Cabuyao, Laguna",
     images: ["/assets/hero-art-sm.webp"],
   },

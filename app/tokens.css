@@ -24,7 +24,17 @@
   --color-focus: var(--color-leaf-deep);
   --color-shadow: oklch(46% 0.040 74 / 0.14);
   --color-shadow-soft: oklch(46% 0.040 74 / 0.08);
-  --color-glass: oklch(99.7% 0.002 78 / 0.74);
+  --color-glass: oklch(99.7% 0.002 78 / 0.8);
+  --color-veil: oklch(97.1% 0.013 237 / 0.62);
+
+  /* light spring swatches, as printed on the guest card */
+  --swatch-blush: #ebb2be;
+  --swatch-apricot: #eda368;
+  --swatch-butter: #f2cd7f;
+  --swatch-lavender: #c9c1e6;
+  --swatch-powder: #c2d8eb;
+  --swatch-sage: #ccd8b0;
+  --swatch-nude: #ebd3b9;
 
   /* type */
   --font-serif: var(--font-goudy), "Goudy Old Style", Garamond, Georgia, serif;
@@ -49,6 +59,7 @@
   --space-3xl: 7rem;
 
   --radius-sm: 2px;
+  --radius-lg: 1.25rem;
   --radius-pill: 999px;
   --rule-hair: 1px;
 
