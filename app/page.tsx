@@ -164,7 +164,7 @@ export default function Home() {
               </figcaption>
             </figure>
             <p className="close__meta caps">
-              <time dateTime="2027-04-26">04.26.2027</time> <span aria-hidden="true">•</span> Cabuyao, Laguna
+              <time dateTime="2027-04-26">04.26.2027</time> <span aria-hidden="true">•</span> Sta.Rosa, Laguna
             </p>
           </div>
         
