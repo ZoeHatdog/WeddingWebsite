@@ -1,4 +1,5 @@
 import os
+import shutil
 import cv2
 import numpy as np
 from PIL import Image
@@ -54,9 +55,11 @@ sky_only = np.zeros_like(m4)
 sky_only[: int(530 * S)] = 1
 clean = (clean * (1 - m4 * sky_only) + blurred * (m4 * sky_only)).astype(np.uint8)
 
-# hero uses the wider repaint; trim its 2px blue frame on the top and right edges
-wide = load("wider-hero.jpg")[2:, :-2]
-save_webp(wide, "hero-art.webp", 1800, 86)
+# Full-bleed backdrop. Copy the original so the page can serve it without a second
+# compression; a 1080p monitor is wider than this file, and re-encoding softens it.
+shutil.copy(os.path.join(SRC, "wide-background.jpeg"), os.path.join(OUT, "hero-art.jpg"))
+print("hero-art.jpg", "copied")
+wide = load("wide-background.jpeg")
 save_webp(wide, "hero-art-sm.webp", 900)
 # soft watercolour sky band (no scenery) for section backgrounds
 save_webp(clean[int(10 * S): int(400 * S), int(100 * S):], "sky.webp", 1600, 78)
