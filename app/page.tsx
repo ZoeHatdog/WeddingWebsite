@@ -154,14 +154,12 @@ export default function Home() {
             <p className="close__sign">With love,</p>
             <Image className="close__names" src="/assets/names.png" width={1600} height={720} sizes="22rem" alt="Javes & Janel" />
             <figure className="cord">
-              <Image className="cord__art" src="/assets/three-fold-knot.webp" width={1149} height={183} sizes="(min-width: 40rem) 16rem, 64vw"
-                alt="Watercolour of three cords in champagne, sage and powder blue braided into one and tied in a single knot." />
-              {/*}
+              <Image className="cord__art" src="/assets/three-fold-braid.webp" width={998} height={231} sizes="(min-width: 40rem) 15rem, 60vw"
+                alt="Fine ink drawing of three cords in champagne, sage and powder blue braided into one and bound together at the top." />
               <figcaption className="cord__caption">
                 “A cord of three strands is not quickly broken.”
                 <cite className="caps">Ecclesiastes 4:12</cite>
               </figcaption>
-              */}
             </figure>
             <p className="close__meta caps">
               <time dateTime="2027-04-26">04.26.2027</time> <span aria-hidden="true">•</span> Cabuyao, Laguna
