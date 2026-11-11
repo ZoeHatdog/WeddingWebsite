@@ -37,14 +37,16 @@ export default function Home() {
             <time dateTime="2027-04-26">04.26.2027</time>
           </p>
           <p className="hero__venue caps reveal" style={stagger(3)}>
-            Lakehall at Nena’s Sanctuary<br />Cabuyao, Laguna
+            Lakehall at Nena’s Sanctuary<br />Sta Rosa, Laguna
           </p>
         </div>
-    {/* <p className="hero__banner caps">Formal invitation to follow</p> */}
+    {/* <p className="hero__banner caps">Formal invitation to follow</p> 
+
         <a className="hero__cue caps reveal" style={stagger(5)} href="#the-day">
           Wedding details
           <span className="hero__cue-arrow" aria-hidden="true" />
         </a>
+        */}
       </header>
 
       <main>
