@@ -157,7 +157,7 @@ export default function Home() {
             <p className="close__sign">With love,</p>
             <Image className="close__names" src="/assets/names.png" width={1600} height={720} sizes="22rem" alt="Javes & Janel" />
             <figure className="cord">
-              <Image className="cord__art" src="/assets/three-fold-braid.webp" width={998} height={231} sizes="9rem"
+              <Image className="cord__art" src="/assets/three-fold-braid.webp" width={998} height={231} sizes="8rem"
                 alt="Fine ink drawing of three cords in champagne, sage and powder blue braided into one and bound together at the top." />
                 {/*
               <figcaption className="cord__caption">
