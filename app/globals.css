@@ -668,7 +668,7 @@ main > .band:first-child { padding-top: clamp(var(--space-xl), 8vw, var(--space-
 }
 
 .cord {
-  width: min(100%, 22rem);
+  width: min(100%, 16rem);
   margin: var(--space-lg) auto 0;
 }
 

@@ -154,8 +154,8 @@ export default function Home() {
             <p className="close__sign">With love,</p>
             <Image className="close__names" src="/assets/names.png" width={1600} height={720} sizes="22rem" alt="Javes & Janel" />
             <figure className="cord">
-              <Image className="cord__art" src="/assets/three-fold-cord.webp" width={1129} height={430} sizes="(min-width: 40rem) 22rem, 78vw"
-                alt="Watercolour of three braided cords in champagne, sage and powder blue looped into one, tied with a sprig of white roses." />
+              <Image className="cord__art" src="/assets/three-fold-knot.webp" width={1149} height={183} sizes="(min-width: 40rem) 16rem, 64vw"
+                alt="Watercolour of three cords in champagne, sage and powder blue braided into one and tied in a single knot." />
               {/*}
               <figcaption className="cord__caption">
                 “A cord of three strands is not quickly broken.”
