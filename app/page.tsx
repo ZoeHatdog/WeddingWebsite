@@ -67,7 +67,7 @@ export default function Home() {
                 </div>
                 <div className="fact">
                   <dt className="caps">Venue</dt>
-                  <dd>Lakehall at Nena’s Sanctuary<br />Cabuyao, Laguna</dd>
+                  <dd>Lakehall at Nena’s Sanctuary<br />Sta. Rosa, Laguna</dd>
                 </div>
                 <div className="fact">
                   <dt className="caps">Wedding Countdown</dt>
