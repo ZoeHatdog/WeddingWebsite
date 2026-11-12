@@ -1,8 +1,8 @@
-/* Hallmark · genre: editorial · macrostructure: Marquee Hero → stationery stack · nav: N4 in-flow paper pill (menu sheet < 48rem) · footer: Ft6 letter close
+/* Hallmark · genre: editorial · macrostructure: Marquee Hero → stationery stack · nav: sticky bar, mark left, sections right · footer: Ft6 letter close
  * theme: custom (studied-DNA, source: resources/Save the Date) · vibe: "watercolour lakeside, light spring, hand-lettered, paper"
  * paper: oklch(99.7% 0.002 78) · ink: oklch(56.6% 0.042 75) · sky: oklch(97.1% 0.013 237) · accents: the seven spring swatches
  * display: original hand lettering (extracted) + Sorts Mill Goudy caps · body: Sorts Mill Goudy (+ italic for the printed-card voice)
- * nav sits in the hero flow so the names always start below it
+ * nav follows the page as it scrolls; the names start below it
  * enrichment: E5 source illustration + generated watercolour three-fold cord · axes: light / roman-serif / chromatic-other (taupe)
  * Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4
  */
@@ -17,7 +17,7 @@ body { overflow-x: clip; }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 1.5rem;
+  scroll-padding-top: 4.5rem;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -82,9 +82,10 @@ a { color: inherit; }
   box-shadow: 0 8px 24px var(--color-shadow-soft);
 }
 
-/* ---------- nav: paper pill in the page flow, so it never covers the names ---------- */
+/* ---------- nav: follows the scroll, names on the left and sections on the right ---------- */
 .nav {
-  position: relative;
+  position: sticky;
+  top: var(--space-sm);
   z-index: var(--z-nav);
   display: flex;
   align-items: center;
@@ -92,8 +93,8 @@ a { color: inherit; }
   flex-shrink: 0;
   gap: var(--space-sm);
   width: min(100% - 2 * var(--space-sm), 50rem);
-  margin-top: var(--space-sm);
-  padding: 0.375rem 0.375rem 0.375rem 1.25rem;
+  margin: var(--space-sm) auto 0;
+  padding: 0.25rem 0.3rem 0.25rem 1.15rem;
   border-radius: var(--radius-pill);
   font-size: var(--text-sm);
 }
@@ -111,7 +112,7 @@ a { color: inherit; }
   display: inline-flex;
   align-items: center;
   gap: var(--space-2xs);
-  min-height: 44px;
+  min-height: 40px;
   padding: 0 var(--space-sm);
   border: var(--rule-hair) solid var(--color-rule);
   border-radius: var(--radius-pill);
@@ -161,7 +162,7 @@ a { color: inherit; }
 
 .nav__links a {
   display: block;
-  padding: 0.875rem var(--space-sm);
+  padding: 0.8rem var(--space-sm);
   border-radius: calc(var(--radius-lg) - var(--space-2xs));
   text-align: center;
   text-decoration: none;
@@ -176,6 +177,7 @@ a { color: inherit; }
   .nav__links {
     position: static;
     display: flex;
+    justify-content: flex-end;
     gap: var(--space-3xs);
     padding: 0;
     border: 0;
@@ -187,7 +189,7 @@ a { color: inherit; }
     transition: none;
   }
   .nav__links a {
-    padding: 0.625rem var(--space-sm);
+    padding: 0.5rem var(--space-sm);
     border-radius: var(--radius-pill);
   }
 }
@@ -241,20 +243,47 @@ a { color: inherit; }
   text-align: center;
   color: var(--color-ink);
 }
-@media (max-width: 53.99rem) {
-  .hero__text { margin-top: var(--space-sm); }
-  .hero__names { width: min(64vw, 18svh); }
-  .hero__when {
-    margin-top: 0.15rem;
-    padding: 0.2rem 0.9rem 0.4rem;
-    border-radius: 1rem;
-    background: radial-gradient(ellipse 100% 100% at center, rgb(238 247 253 / 0.94), rgb(238 247 253 / 0.82) 70%, rgb(238 247 253 / 0) 100%);
-  }
-  .hero__date { margin-top: 0; font-size: 1.15rem; }
-  .hero__venue { margin-top: 0.15rem; }
-}
 @media (min-width: 54rem) {
-  .hero__text { margin-top: clamp(1.25rem, 3svh, 2.25rem); }
+  .hero__text { margin-top: clamp(0.75rem, 1.6svh, 1.35rem); }
+}
+
+/* The sky is only the top of the painting. Shrink the date block before it reaches the trees. */
+@media (max-height: 900px) {
+  .hero__names { width: min(64vw, 18svh, 20rem); }
+  .hero__date { font-size: clamp(0.9rem, 1.9svh, 1.25rem); }
+  .hero__venue { font-size: clamp(0.65rem, 1.15svh, 0.82rem); }
+}
+@media (max-height: 760px) {
+  .hero__text { margin-top: 0.5rem; }
+  .hero__names { width: min(56vw, 15svh, 16rem); margin-top: 0.35rem; }
+  .hero__when { margin-top: 0.25rem; }
+  .hero__date { font-size: 0.95rem; }
+  .hero__venue { margin-top: 0.15rem; font-size: 0.68rem; line-height: 1.25; }
+}
+@media (max-height: 680px) {
+  .nav { margin-top: 0.35rem; }
+  .hero__text { margin-top: 0.25rem; }
+  .hero__kicker { font-size: 0.72rem; }
+  .hero__names { width: min(42vw, 10svh, 11rem); margin-top: 0.15rem; }
+  .hero__when { margin-top: 0.1rem; }
+  .hero__date { font-size: 0.78rem; }
+  .hero__venue { margin-top: 0.08rem; font-size: 0.58rem; line-height: 1.15; }
+}
+
+/* A tall phone shows the whole painting, so the sky band is short. */
+@media (max-width: 53.99rem) {
+  .nav { margin-top: 0.4rem; }
+  .hero__text { margin-top: 0.15rem; }
+  .hero__kicker { font-size: 0.75rem; }
+  .hero__names { width: min(50vw, 11svh); margin-top: 0.1rem; }
+  .hero__when { margin-top: 0.1rem; }
+  .hero__date { font-size: 0.9rem; }
+  .hero__venue { margin-top: 0.08rem; font-size: 0.6rem; line-height: 1.15; letter-spacing: 0.05em; }
+}
+@media (max-width: 53.99rem) and (max-height: 700px) {
+  .hero__names { width: min(48vw, 11svh); }
+  .hero__date { font-size: 0.9rem; }
+  .hero__venue { font-size: 0.6rem; }
 }
 
 .hero__kicker {
@@ -264,23 +293,25 @@ a { color: inherit; }
 }
 
 .hero__names {
-  width: min(72vw, 26rem, 26svh);
-  margin-top: 1.2svh;
+  width: min(68vw, 22rem, 20svh);
+  margin-top: 0.8svh;
 }
 
+.hero__when { margin-top: 0.5svh; }
+
 .hero__date {
-  margin-top: 1.2svh;
-  font-size: clamp(1.25rem, 3.4svh, 2.2rem);
-  letter-spacing: 0.1em;
+  margin-top: 0;
+  font-size: clamp(0.95rem, 2.1svh, 1.45rem);
+  letter-spacing: 0.08em;
   line-height: 1;
   font-variant-numeric: lining-nums;
 }
 
 .hero__venue {
-  margin-top: 1svh;
-  font-size: clamp(0.8rem, 1.8svh, 1.1rem);
-  letter-spacing: 0.1em;
-  line-height: 1.6;
+  margin-top: 0.35svh;
+  font-size: clamp(0.68rem, 1.25svh, 0.9rem);
+  letter-spacing: 0.08em;
+  line-height: 1.35;
 }
 
 /* The soft wash keeps it legible wherever it lands on the garden. */
@@ -321,7 +352,6 @@ a { color: inherit; }
 @keyframes nudge { 50% { translate: 2px 2px; } }
 
 @media (max-width: 30rem) {
-  .hero__venue { letter-spacing: 0.06em; line-height: 1.5; }
   .hero__banner { letter-spacing: 0.06em; }
 }
 

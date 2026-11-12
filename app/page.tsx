@@ -26,9 +26,9 @@ export default function Home() {
 
       <a className="skip" href="#the-day">Skip to the details</a>
 
-      <header className="hero" id="top">
-        <SiteNav />
+      <SiteNav />
 
+      <header className="hero" id="top">
         <div className="hero__text">
           <p className="hero__kicker caps reveal" style={stagger(0)}>Save the date</p>
           <h1 className="hero__names reveal" style={stagger(1)}>
