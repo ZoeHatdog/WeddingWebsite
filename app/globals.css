@@ -1,7 +1,8 @@
-/* Hallmark · genre: editorial · macrostructure: Marquee Hero → stationery stack · nav: N4 floating paper pill (menu sheet < 48rem) · footer: Ft6 letter close
+/* Hallmark · genre: editorial · macrostructure: Marquee Hero → stationery stack · nav: N4 in-flow paper pill (menu sheet < 48rem) · footer: Ft6 letter close
  * theme: custom (studied-DNA, source: resources/Save the Date) · vibe: "watercolour lakeside, light spring, hand-lettered, paper"
  * paper: oklch(99.7% 0.002 78) · ink: oklch(56.6% 0.042 75) · sky: oklch(97.1% 0.013 237) · accents: the seven spring swatches
  * display: original hand lettering (extracted) + Sorts Mill Goudy caps · body: Sorts Mill Goudy (+ italic for the printed-card voice)
+ * nav sits in the hero flow so the names always start below it
  * enrichment: E5 source illustration + generated watercolour three-fold cord · axes: light / roman-serif / chromatic-other (taupe)
  * Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4
  */
@@ -16,7 +17,7 @@ body { overflow-x: clip; }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 1.5rem;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -81,18 +82,17 @@ a { color: inherit; }
   box-shadow: 0 8px 24px var(--color-shadow-soft);
 }
 
-/* ---------- nav: floating paper pill ---------- */
+/* ---------- nav: paper pill in the page flow, so it never covers the names ---------- */
 .nav {
-  position: fixed;
-  top: var(--space-xs);
-  left: 50%;
-  translate: -50% 0;
+  position: relative;
   z-index: var(--z-nav);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-shrink: 0;
   gap: var(--space-sm);
-  width: min(100% - 2 * var(--space-xs), 50rem);
+  width: min(100% - 2 * var(--space-sm), 50rem);
+  margin-top: var(--space-sm);
   padding: 0.375rem 0.375rem 0.375rem 1.25rem;
   border-radius: var(--radius-pill);
   font-size: var(--text-sm);
@@ -199,10 +199,10 @@ a { color: inherit; }
   z-index: -1;
 }
 
-/* 60% keeps the couple in frame on landscape screens; portrait screens crop only the sides. */
+/* Top-aligned so the sky stays behind the names. A lower value was cropping the sky and putting the date on the trees. */
 .backdrop__art {
   object-fit: cover;
-  object-position: 50% 60%;
+  object-position: 50% 0%;
 }
 
 /* Past the hero the painting recedes behind a sky wash so the stationery reads first. */
@@ -229,7 +229,7 @@ a { color: inherit; }
   flex-direction: column;
   align-items: center;
   min-height: 100svh;
-  padding: 4.5rem 0 clamp(var(--space-sm), 4svh, var(--space-xl));
+  padding: 0 0 clamp(var(--space-sm), 4svh, var(--space-xl));
 }
 
 /* Sized off viewport height so the block stays in the sky above the tree line (~40% down). */
@@ -241,9 +241,20 @@ a { color: inherit; }
   text-align: center;
   color: var(--color-ink);
 }
+@media (max-width: 53.99rem) {
+  .hero__text { margin-top: var(--space-sm); }
+  .hero__names { width: min(64vw, 18svh); }
+  .hero__when {
+    margin-top: 0.15rem;
+    padding: 0.2rem 0.9rem 0.4rem;
+    border-radius: 1rem;
+    background: radial-gradient(ellipse 100% 100% at center, rgb(238 247 253 / 0.94), rgb(238 247 253 / 0.82) 70%, rgb(238 247 253 / 0) 100%);
+  }
+  .hero__date { margin-top: 0; font-size: 1.15rem; }
+  .hero__venue { margin-top: 0.15rem; }
+}
 @media (min-width: 54rem) {
-  .hero { padding-top: 0; }
-  .hero__text { margin-top: clamp(5rem, 11svh, 7rem); }
+  .hero__text { margin-top: clamp(1.25rem, 3svh, 2.25rem); }
 }
 
 .hero__kicker {
@@ -253,12 +264,12 @@ a { color: inherit; }
 }
 
 .hero__names {
-  width: min(80vw, 34rem, 39svh);
-  margin-top: 2svh;
+  width: min(72vw, 26rem, 26svh);
+  margin-top: 1.2svh;
 }
 
 .hero__date {
-  margin-top: 2svh;
+  margin-top: 1.2svh;
   font-size: clamp(1.25rem, 3.4svh, 2.2rem);
   letter-spacing: 0.1em;
   line-height: 1;
@@ -266,7 +277,7 @@ a { color: inherit; }
 }
 
 .hero__venue {
-  margin-top: 1.6svh;
+  margin-top: 1svh;
   font-size: clamp(0.8rem, 1.8svh, 1.1rem);
   letter-spacing: 0.1em;
   line-height: 1.6;
