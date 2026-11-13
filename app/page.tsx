@@ -26,21 +26,23 @@ export default function Home() {
 
       <a className="skip" href="#the-day">Skip to the details</a>
 
-      <SiteNav />
+     {/*   <SiteNav /> */}
 
       <header className="hero" id="top">
-        <div className="hero__text">
-          <p className="hero__kicker caps reveal" style={stagger(0)}>Save the date</p>
-          <h1 className="hero__names reveal" style={stagger(1)}>
-            <Image src="/assets/names.png" width={1600} height={720} sizes="(min-width: 54rem) 34rem, 80vw" preload alt="Javes & Janel" />
-          </h1>
-          <div className="hero__when">
-            <p className="hero__date reveal" style={stagger(2)}>
-              <time dateTime="2027-04-26">04.26.2027</time>
-            </p>
-            <p className="hero__venue caps reveal" style={stagger(3)}>
-              Lakehall at Nena’s Sanctuary<br />Sta Rosa, Laguna
-            </p>
+        <div className="hero__sky">
+          <div className="hero__text">
+            <p className="hero__kicker caps reveal" style={stagger(0)}>Save the date</p>
+            <h1 className="hero__names reveal" style={stagger(1)}>
+              <Image src="/assets/names.png" width={1600} height={720} sizes="(min-width: 54rem) 34rem, 80vw" preload alt="Javes & Janel" />
+            </h1>
+            <div className="hero__when">
+              <p className="hero__date reveal" style={stagger(2)}>
+                <time dateTime="2027-04-26">04.26.2027</time>
+              </p>
+              <p className="hero__venue caps reveal" style={stagger(3)}>
+                Lakehall at Nena’s Sanctuary<br />Sta Rosa, Laguna
+              </p>
+            </div>
           </div>
         </div>
     {/* <p className="hero__banner caps">Formal invitation to follow</p> 

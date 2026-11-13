@@ -234,83 +234,68 @@ a { color: inherit; }
   padding: 0 0 clamp(var(--space-sm), 4svh, var(--space-xl));
 }
 
-/* Sized off viewport height so the block stays in the sky above the tree line (~40% down). */
+/* Sky band: the painting is 1282×957, top-aligned cover. The trees begin at
+   source y=270, so that line lands at max(270/1282 of the width, 270/957 of the height).
+   The lockup is centered inside it and sized from that height, so every line
+   stays between the top edge and the trees. */
+.hero__sky {
+  --tree: 270;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: min(
+    100svh,
+    max(
+      calc(var(--tree) / 1282 * 100vw),
+      calc(var(--tree) / 957 * 100svh)
+    )
+  );
+  padding-top: calc(env(safe-area-inset-top, 0px) + clamp(0.7rem, 2svh, 1.15rem));
+  padding-bottom: clamp(0.85rem, 2.6svh, 1.45rem);
+  padding-left: max(var(--space-sm), env(safe-area-inset-left, 0px));
+  padding-right: max(var(--space-sm), env(safe-area-inset-right, 0px));
+  container-type: size;
+}
+
 .hero__text {
   display: grid;
   justify-items: center;
-  margin-top: clamp(var(--space-2xs), 2svh, var(--space-lg));
-  padding-inline: var(--space-sm);
+  align-content: center;
+  width: min(100%, 34rem);
+  max-height: 100%;
+  margin: 0;
   text-align: center;
   color: var(--color-ink);
 }
-@media (min-width: 54rem) {
-  .hero__text { margin-top: clamp(0.75rem, 1.6svh, 1.35rem); }
-}
-
-/* The sky is only the top of the painting. Shrink the date block before it reaches the trees. */
-@media (max-height: 900px) {
-  .hero__names { width: min(64vw, 18svh, 20rem); }
-  .hero__date { font-size: clamp(0.9rem, 1.9svh, 1.25rem); }
-  .hero__venue { font-size: clamp(0.65rem, 1.15svh, 0.82rem); }
-}
-@media (max-height: 760px) {
-  .hero__text { margin-top: 0.5rem; }
-  .hero__names { width: min(56vw, 15svh, 16rem); margin-top: 0.35rem; }
-  .hero__when { margin-top: 0.25rem; }
-  .hero__date { font-size: 0.95rem; }
-  .hero__venue { margin-top: 0.15rem; font-size: 0.68rem; line-height: 1.25; }
-}
-@media (max-height: 680px) {
-  .nav { margin-top: 0.35rem; }
-  .hero__text { margin-top: 0.25rem; }
-  .hero__kicker { font-size: 0.72rem; }
-  .hero__names { width: min(42vw, 10svh, 11rem); margin-top: 0.15rem; }
-  .hero__when { margin-top: 0.1rem; }
-  .hero__date { font-size: 0.78rem; }
-  .hero__venue { margin-top: 0.08rem; font-size: 0.58rem; line-height: 1.15; }
-}
-
-/* A tall phone shows the whole painting, so the sky band is short. */
-@media (max-width: 53.99rem) {
-  .nav { margin-top: 0.4rem; }
-  .hero__text { margin-top: 0.15rem; }
-  .hero__kicker { font-size: 0.75rem; }
-  .hero__names { width: min(50vw, 11svh); margin-top: 0.1rem; }
-  .hero__when { margin-top: 0.1rem; }
-  .hero__date { font-size: 0.9rem; }
-  .hero__venue { margin-top: 0.08rem; font-size: 0.6rem; line-height: 1.15; letter-spacing: 0.05em; }
-}
-@media (max-width: 53.99rem) and (max-height: 700px) {
-  .hero__names { width: min(48vw, 11svh); }
-  .hero__date { font-size: 0.9rem; }
-  .hero__venue { font-size: 0.6rem; }
-}
 
 .hero__kicker {
-  font-size: clamp(0.95rem, 2.4svh, 1.6rem);
-  letter-spacing: 0.09em;
+  font-size: clamp(0.78rem, 7.5cqh, 1.15rem);
+  letter-spacing: 0.14em;
   line-height: 1;
 }
 
 .hero__names {
-  width: min(68vw, 22rem, 20svh);
-  margin-top: 0.8svh;
+  width: min(100%, 24rem, 78cqh);
+  margin-top: clamp(0.2rem, 2cqh, 0.5rem);
 }
 
-.hero__when { margin-top: 0.5svh; }
+.hero__when { margin-top: clamp(0.25rem, 2.2cqh, 0.6rem); }
 
 .hero__date {
   margin-top: 0;
-  font-size: clamp(0.95rem, 2.1svh, 1.45rem);
-  letter-spacing: 0.08em;
+  font-size: clamp(0.85rem, 6.5cqh, 1.25rem);
+  letter-spacing: 0.1em;
   line-height: 1;
   font-variant-numeric: lining-nums;
 }
 
 .hero__venue {
-  margin-top: 0.35svh;
-  font-size: clamp(0.68rem, 1.25svh, 0.9rem);
-  letter-spacing: 0.08em;
+  margin-top: clamp(0.2rem, 1.6cqh, 0.45rem);
+  font-size: clamp(0.68rem, 4.2cqh, 0.88rem);
+  letter-spacing: 0.1em;
   line-height: 1.35;
 }
 
