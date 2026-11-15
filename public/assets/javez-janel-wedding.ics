@@ -1,6 +1,6 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Javez and Janel//Wedding//EN
+PRODID:-//Javes and Janel//Wedding//EN
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
@@ -9,7 +9,7 @@ DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20270426
 DTEND;VALUE=DATE:20270427
 SUMMARY:Javez & Janel's Wedding
-LOCATION:Lakehall at Nena's Sanctuary\, Cabuyao\, Laguna\, Philippines
+LOCATION:Lakehall at Nena's Sanctuary\, Sta.Rosa\, Laguna\, Philippines
 DESCRIPTION:Save the date! Dress code: Light Spring Cocktail. Formal invitation with ceremony times and RSVP to follow.
 TRANSP:TRANSPARENT
 END:VEVENT
